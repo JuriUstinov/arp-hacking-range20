@@ -8,7 +8,7 @@
   become: yes
   roles:
     - name: server
-      flag: "{{ alice_flag }}"
+      flag: "{{ user_flag }}"
       flag_2: "{{ root_flag }}"
 
 - hosts: client
