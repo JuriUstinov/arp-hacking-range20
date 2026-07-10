@@ -1,0 +1,5 @@
+user_flag:
+    type: text
+
+root_flag:
+    type: text
