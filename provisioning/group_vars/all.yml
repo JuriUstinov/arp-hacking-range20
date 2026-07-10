@@ -1,5 +1,3 @@
-lab_user: user
-lab_password: "WiSpi23_u0"
 server_ip: "10.10.30.7"
 client_ip: "10.10.30.6"
 client_mac: ""
