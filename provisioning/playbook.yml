@@ -1,0 +1,22 @@
+- hosts: all
+  become: true
+  roles:
+    - common
+    
+- name: set up server
+  hosts: server
+  become: yes
+  roles:
+    - name: server
+      flag: "{{ alice_flag }}"
+      flag_2: "{{ root_flag }}"
+
+- hosts: client
+  become: true
+  roles:
+    - client
+
+- hosts: home
+  become: true
+  roles:
+    - kali
