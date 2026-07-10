@@ -1,3 +1,8 @@
+- hosts: client
+  become: true
+  roles:
+    - client
+
 - name: set up server
   hosts: server
   become: yes
@@ -5,11 +10,6 @@
     - name: server
       flag: "{{ user_flag }}"
       flag_2: "{{ root_flag }}"
-
-- hosts: client
-  become: true
-  roles:
-    - client
 
 - hosts: home
   become: true
