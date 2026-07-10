@@ -1,9 +1,4 @@
-- hosts: all
-  become: true
-  roles:
-    - common
-    
-- name: set up server
+ - name: set up server
   hosts: server
   become: yes
   roles:
