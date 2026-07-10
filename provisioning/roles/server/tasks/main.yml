@@ -7,7 +7,6 @@
       - curl
       - nftables
       - openssh-server
-      - cron
       - python3
       - wireshark
     state: present
@@ -16,12 +15,6 @@
 - name: Enable and start ssh
   systemd:
     name: ssh
-    enabled: true
-    state: started
-
-- name: Enable and start cron
-  systemd:
-    name: cron
     enabled: true
     state: started
 
@@ -59,6 +52,13 @@
     state: directory
     mode: "0755"
 
+- name: Create user named user
+  user:
+    name: user
+    shell: /bin/bash
+    create_home: true
+    state: present
+
 # --- NEU: SSH-Verzeichnis und authorized_keys erstellen ---
 - name: Ensure .ssh directory exists for user
   file:
@@ -91,7 +91,7 @@
 - name: Place flag
   copy:
     dest: '/home/user/flag.txt'
-    owner: '{{ username }}'
+    owner: user
     content: "{{ flag }}\n"
     mode: '0600'
 
